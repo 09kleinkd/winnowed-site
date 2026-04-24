@@ -16,6 +16,65 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%237A9B5E%22/><path d=%22M50 28c10 0 20 8 20 22s-10 22-20 22-20-8-20-22%22 fill=%22none%22 stroke=%22%23FAF5EC%22 stroke-width=%226%22/></svg>">
   <link rel="stylesheet" href="/styles.css">
 
+  <!-- Scroll fade-in + Also section side-by-side layout -->
+  <style>
+    /* Fade-in utility — any element with .fade-up slides up + fades in
+       when it enters the viewport. One-shot: we unobserve after reveal. */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+      will-change: opacity, transform;
+    }
+    .fade-up.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
+    /* Also section — two-column screenshot + text, zig-zagged by .reverse.
+       Typography for .feature-num, .feature-title, .feature-body continues
+       to come from styles.css; we only restructure the layout here. */
+    .feature {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 56px;
+      align-items: center;
+      margin: 64px 0;
+    }
+    .feature.reverse .feature-shot { order: 2; }
+    .feature.reverse .feature-text  { order: 1; }
+
+    .feature-shot {
+      display: flex;
+      justify-content: center;
+    }
+    .feature-shot img {
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+    }
+
+    @media (max-width: 720px) {
+      .feature,
+      .feature.reverse {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin: 48px 0;
+      }
+      .feature.reverse .feature-shot { order: 0; }
+      .feature.reverse .feature-text  { order: 0; }
+      .feature-shot img { max-width: 240px; }
+    }
+  </style>
+
   <!-- Plausible analytics (privacy-preserving) -->
   <script defer data-domain="winnowed.app" src="https://plausible.io/js/script.js"></script>
 </head>
@@ -51,9 +110,9 @@
 
     <!-- The argument -->
     <section class="sec">
-      <p class="sec-label">The idea</p>
+      <p class="sec-label fade-up">The idea</p>
 
-      <div class="prose">
+      <div class="prose fade-up">
         <p class="lede">
           Most people underestimate what they're paying for subscriptions by a lot. The streaming service you forgot. The tool you used twice. The membership from two years ago.
         </p>
@@ -68,27 +127,27 @@
 
     <!-- Screenshots -->
     <section class="sec">
-      <p class="sec-label">The app</p>
+      <p class="sec-label fade-up">The app</p>
 
       <div class="shots">
-        <figure class="shot">
-          <img src="/images/stack.png" alt="The Stack screen, showing $4,403 annual and subscriptions grouped by cost tier.">
+        <figure class="shot fade-up">
+          <img src="/images/stack.png" alt="The Stack screen, showing $4,403 annual and subscriptions grouped by cost tier." loading="lazy">
           <figcaption>
             <div class="shot-caption">The Stack</div>
             <div class="shot-caption-sub">Subscriptions grouped by how much they cost over five years.</div>
           </figcaption>
         </figure>
 
-        <figure class="shot">
-          <img src="/images/review.png" alt="The Review screen, showing one subscription at a time with Keep, Pause, and Cut options.">
+        <figure class="shot fade-up">
+          <img src="/images/review.png" alt="The Review screen, showing one subscription at a time with Keep, Pause, and Cut options." loading="lazy">
           <figcaption>
             <div class="shot-caption">The Review</div>
             <div class="shot-caption-sub">One card at a time. Swipe right to keep, left to cut.</div>
           </figcaption>
         </figure>
 
-        <figure class="shot">
-          <img src="/images/widget.png" alt="A home screen widget showing annual spending and top subscriptions.">
+        <figure class="shot fade-up">
+          <img src="/images/widget.png" alt="A home screen widget showing annual spending and top subscriptions." loading="lazy">
           <figcaption>
             <div class="shot-caption">The Widget</div>
             <div class="shot-caption-sub">A quiet reminder on your home screen.</div>
@@ -99,36 +158,48 @@
 
     <!-- Features, numbered and quiet -->
     <section class="sec">
-      <p class="sec-label">Also</p>
+      <p class="sec-label fade-up">Also</p>
 
       <div class="features">
-        <div class="feature">
-          <div class="feature-num">01</div>
-          <div>
+        <div class="feature fade-up">
+          <div class="feature-shot">
+            <img src="/images/also-01-scan.png" alt="The scan-a-receipt screen, showing Likely matches with checkboxes next to each detected subscription." loading="lazy">
+          </div>
+          <div class="feature-text">
+            <div class="feature-num">01</div>
             <div class="feature-title">Scan a receipt.</div>
             <div class="feature-body">Point your camera at a bank statement. Winnowed finds the subscriptions and asks which ones to add.</div>
           </div>
         </div>
 
-        <div class="feature">
-          <div class="feature-num">02</div>
-          <div>
+        <div class="feature reverse fade-up">
+          <div class="feature-shot">
+            <img src="/images/also-02-gradient.png" alt="The Aligned summary screen, with a sage-green card showing $3,491 of aligned annual spending and color-coded rows for cut and paused subscriptions." loading="lazy">
+          </div>
+          <div class="feature-text">
+            <div class="feature-num">02</div>
             <div class="feature-title">A gradient for urgency.</div>
             <div class="feature-body">Each subscription and your aggregate spending sit somewhere on a five-stage palette — sage for a little, burgundy for a lot.</div>
           </div>
         </div>
 
-        <div class="feature">
-          <div class="feature-num">03</div>
-          <div>
+        <div class="feature fade-up">
+          <div class="feature-shot">
+            <img src="/images/also-03-history.png" alt="The History screen showing $312 saved per year with Q2 2026 session details." loading="lazy">
+          </div>
+          <div class="feature-text">
+            <div class="feature-num">03</div>
             <div class="feature-title">A record of your choices.</div>
             <div class="feature-body">Every review is saved. So are price changes. The History screen is a quiet ledger of what you've decided, and what it's saved you.</div>
           </div>
         </div>
 
-        <div class="feature">
-          <div class="feature-num">04</div>
-          <div>
+        <div class="feature reverse fade-up">
+          <div class="feature-shot">
+            <img src="/images/also-04-device.png" alt="The Winnowed onboarding Aligned Spending screen with a sage leaf icon." loading="lazy">
+          </div>
+          <div class="feature-text">
+            <div class="feature-num">04</div>
             <div class="feature-title">Entirely on your device.</div>
             <div class="feature-body">No accounts. No servers. No tracking. Your data never leaves the phone it's on.</div>
           </div>
@@ -138,9 +209,9 @@
 
     <!-- Attribution -->
     <section class="sec">
-      <p class="sec-label">Made by</p>
+      <p class="sec-label fade-up">Made by</p>
 
-      <div class="prose">
+      <div class="prose fade-up">
         <p>
           Winnowed is designed, built, and supported by one person — Kurt Klein — in Berwyn, Pennsylvania. It's the second app from K² (<a href="https://minuted.org" style="color: var(--rust); text-decoration: none; border-bottom: 1px solid rgba(160, 61, 30, 0.25);">Minuted</a> was the first).
         </p>
@@ -150,7 +221,7 @@
       </div>
     </section>
 
-    <footer class="footer">
+    <footer class="footer fade-up">
       <div>© 2026 Kurt Klein</div>
       <div class="footer-links">
         <a href="/privacy">Privacy</a>
@@ -159,5 +230,28 @@
       </div>
     </footer>
   </main>
+
+  <!-- Scroll-triggered fade-in -->
+  <script>
+    (function () {
+      var items = document.querySelectorAll('.fade-up');
+      if (!('IntersectionObserver' in window) || items.length === 0) {
+        for (var i = 0; i < items.length; i++) items[i].classList.add('is-visible');
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -8% 0px'
+      });
+      items.forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
 </body>
 </html>
