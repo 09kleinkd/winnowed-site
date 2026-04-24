@@ -6,15 +6,53 @@
   <title>Winnowed — Keep what counts, cut the rest.</title>
   <meta name="description" content="A subscription tracker designed around a quarterly review ritual. Sit with each one. Keep what counts. Cut what doesn't.">
 
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%237A9B5E%22/><path d=%22M50 28c10 0 20 8 20 22s-10 22-20 22-20-8-20-22%22 fill=%22none%22 stroke=%22%23FAF5EC%22 stroke-width=%226%22/></svg>">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
   <!-- Open Graph -->
   <meta property="og:title" content="Winnowed — Keep what counts, cut the rest.">
   <meta property="og:description" content="A subscription tracker designed around a quarterly review ritual.">
   <meta property="og:url" content="https://winnowed.app">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://winnowed.app/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://winnowed.app/og-image.png">
+
   <meta name="theme-color" content="#FAF5EC">
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%237A9B5E%22/><path d=%22M50 28c10 0 20 8 20 22s-10 22-20 22-20-8-20-22%22 fill=%22none%22 stroke=%22%23FAF5EC%22 stroke-width=%226%22/></svg>">
   <link rel="stylesheet" href="/styles.css">
+
+  <!-- Structured data — SoftwareApplication schema for richer search results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Winnowed",
+    "description": "A subscription tracker designed around a quarterly review ritual. Keep what counts, cut the rest.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "iOS 26",
+    "url": "https://winnowed.app",
+    "offers": {
+      "@type": "Offer",
+      "price": "4.99",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Kurt Klein"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "K\u00b2"
+    }
+  }
+  </script>
 
   <!-- Scroll fade-in + Also section side-by-side layout -->
   <style>
@@ -38,9 +76,7 @@
       }
     }
 
-    /* Also section — two-column screenshot + text, zig-zagged by .reverse.
-       Typography for .feature-num, .feature-title, .feature-body continues
-       to come from styles.css; we only restructure the layout here. */
+    /* Also section — two-column screenshot + text, zig-zagged by .reverse. */
     .feature {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);

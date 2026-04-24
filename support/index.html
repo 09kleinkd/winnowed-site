@@ -4,18 +4,58 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Support — Winnowed</title>
-  <meta name="description" content="Help, bug reports, and feedback for Winnowed. Email Kurt directly.">
+  <meta name="description" content="Help, bug reports, and feedback for Winnowed. Written by the person who built it.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%237A9B5E%22/><path d=%22M50 28c10 0 20 8 20 22s-10 22-20 22-20-8-20-22%22 fill=%22none%22 stroke=%22%23FAF5EC%22 stroke-width=%226%22/></svg>">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Support — Winnowed">
+  <meta property="og:description" content="Help, bug reports, and feedback for Winnowed. Written by the person who built it.">
+  <meta property="og:url" content="https://winnowed.app/support">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://winnowed.app/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://winnowed.app/og-image.png">
+
   <meta name="theme-color" content="#FAF5EC">
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%237A9B5E%22/><path d=%22M50 28c10 0 20 8 20 22s-10 22-20 22-20-8-20-22%22 fill=%22none%22 stroke=%22%23FAF5EC%22 stroke-width=%226%22/></svg>">
   <link rel="stylesheet" href="/styles.css">
 
+  <!-- Scroll fade-in utility -->
+  <style>
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+      will-change: opacity, transform;
+    }
+    .fade-up.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+  </style>
+
+  <!-- Plausible analytics (privacy-preserving) -->
   <script defer data-domain="winnowed.app" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
   <div class="wash" aria-hidden="true"></div>
 
-  <main class="wrap longform">
+  <main class="wrap">
     <a href="/" class="brand">
       <span class="brand-leaf">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -25,52 +65,64 @@
       <span class="brand-name">Winnowed</span>
     </a>
 
-    <h1>Support</h1>
-    <p class="meta">Help, bug reports, and feedback</p>
+    <h1 class="hero">Support</h1>
 
-    <p>
-      Winnowed is built and supported by one person. If something isn't working, or you have an idea, or you just want to say hello — write directly. I read every message.
-    </p>
+    <p class="hero-sub">Help, bug reports, and feedback</p>
 
-    <p>
-      <a href="mailto:kurtdklein09@icloud.com?subject=Winnowed%20Support">kurtdklein09@icloud.com</a>
-    </p>
+    <div class="prose">
+      <p class="lede">
+        Winnowed is built and supported by one person. If something isn't working, or you have an idea, or you just want to say hello — write directly. I read every message.
+      </p>
+      <p>
+        <a href="mailto:kurtdklein09@icloud.com" style="color: var(--rust); text-decoration: none; border-bottom: 1px solid rgba(160, 61, 30, 0.25);">kurtdklein09@icloud.com</a>
+      </p>
+    </div>
 
-    <h2>Before you email</h2>
-    <p>
-      A few things that will help me help you faster:
-    </p>
-    <ul>
-      <li>Your iOS version (Settings → General → About).</li>
-      <li>A description of what you were doing when the issue happened.</li>
-      <li>A screenshot, if the problem is visual.</li>
-    </ul>
+    <section class="sec">
+      <h2 class="fade-up">Before you email</h2>
+      <div class="prose fade-up">
+        <p>A few things that will help me help you faster:</p>
+        <ul>
+          <li>Your iOS version (Settings → General → About).</li>
+          <li>A description of what you were doing when the issue happened.</li>
+          <li>A screenshot, if the problem is visual.</li>
+        </ul>
+      </div>
+    </section>
 
-    <h2>Common questions</h2>
+    <section class="sec">
+      <p class="sec-label fade-up">Common questions</p>
 
-    <h2 style="font-size: 19px; margin-top: 32px;">How do I export my data?</h2>
-    <p>
-      Settings → Data → Export to PDF. The PDF contains your full subscription history, including past reviews and price changes.
-    </p>
+      <div class="faq fade-up">
+        <h3>How do I export my data?</h3>
+        <p>Settings → Data → Export to PDF. The PDF contains your full subscription history, including past reviews and price changes.</p>
+      </div>
 
-    <h2 style="font-size: 19px; margin-top: 24px;">How do I change my review cadence?</h2>
-    <p>
-      Settings → Ritual → Review cadence. You can pick monthly, quarterly, or twice a year. Quarterly is the default — it's the cadence Winnowed is designed around.
-    </p>
+      <div class="faq fade-up">
+        <h3>How do I change my review cadence?</h3>
+        <p>Settings → Ritual → Review cadence. You can pick monthly, quarterly, or twice a year. Quarterly is the default — it's the cadence Winnowed is designed around.</p>
+      </div>
 
-    <h2 style="font-size: 19px; margin-top: 24px;">Does Winnowed cancel subscriptions for me?</h2>
-    <p>
-      No. Winnowed helps you decide what to cut. The actual cancellation happens in each service's own settings — Winnowed will open the cancellation page for you when it has one on file.
-    </p>
+      <div class="faq fade-up">
+        <h3>Does Winnowed cancel subscriptions for me?</h3>
+        <p>No. Winnowed helps you decide what to cut. The actual cancellation happens in each service's own settings — Winnowed will open the cancellation page for you when it has one on file.</p>
+      </div>
 
-    <h2 style="font-size: 19px; margin-top: 24px;">Will Winnowed come to other platforms?</h2>
-    <p>
-      iPhone first. iPad support and watchOS are on the roadmap. No plans for Android or Web — keeping the app small and on-device is part of the design.
-    </p>
+      <div class="faq fade-up">
+        <h3>Will Winnowed come to other platforms?</h3>
+        <p>iPhone first. iPad support and watchOS are on the roadmap. No plans for Android or Web — keeping the app small and on-device is part of the design.</p>
+      </div>
+    </section>
 
-    <p class="signoff">— Kurt Klein, Paoli, Pennsylvania</p>
+    <section class="sec">
+      <div class="prose fade-up">
+        <p class="quiet" style="color: var(--text-muted);">
+          — Kurt Klein, Berwyn, Pennsylvania
+        </p>
+      </div>
+    </section>
 
-    <footer class="footer">
+    <footer class="footer fade-up">
       <div>© 2026 Kurt Klein</div>
       <div class="footer-links">
         <a href="/">Home</a>
@@ -79,5 +131,28 @@
       </div>
     </footer>
   </main>
+
+  <!-- Scroll-triggered fade-in -->
+  <script>
+    (function () {
+      var items = document.querySelectorAll('.fade-up');
+      if (!('IntersectionObserver' in window) || items.length === 0) {
+        for (var i = 0; i < items.length; i++) items[i].classList.add('is-visible');
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -8% 0px'
+      });
+      items.forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
 </body>
 </html>

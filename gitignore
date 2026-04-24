@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor artifacts
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+
+# Dependency directories (in case you ever add tooling)
+node_modules/

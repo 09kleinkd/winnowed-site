@@ -4,18 +4,58 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy — Winnowed</title>
-  <meta name="description" content="Winnowed collects nothing. All your subscription data stays on your device.">
+  <meta name="description" content="Winnowed is designed to keep your data on your device. Here's exactly what that means.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%237A9B5E%22/><path d=%22M50 28c10 0 20 8 20 22s-10 22-20 22-20-8-20-22%22 fill=%22none%22 stroke=%22%23FAF5EC%22 stroke-width=%226%22/></svg>">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Privacy — Winnowed">
+  <meta property="og:description" content="Winnowed is designed to keep your data on your device. Here's exactly what that means.">
+  <meta property="og:url" content="https://winnowed.app/privacy">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://winnowed.app/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://winnowed.app/og-image.png">
+
   <meta name="theme-color" content="#FAF5EC">
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%237A9B5E%22/><path d=%22M50 28c10 0 20 8 20 22s-10 22-20 22-20-8-20-22%22 fill=%22none%22 stroke=%22%23FAF5EC%22 stroke-width=%226%22/></svg>">
   <link rel="stylesheet" href="/styles.css">
 
+  <!-- Scroll fade-in utility -->
+  <style>
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+      will-change: opacity, transform;
+    }
+    .fade-up.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+  </style>
+
+  <!-- Plausible analytics (privacy-preserving) -->
   <script defer data-domain="winnowed.app" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
   <div class="wash" aria-hidden="true"></div>
 
-  <main class="wrap longform">
+  <main class="wrap">
     <a href="/" class="brand">
       <span class="brand-leaf">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -25,58 +65,88 @@
       <span class="brand-name">Winnowed</span>
     </a>
 
-    <h1>Privacy</h1>
-    <p class="meta">Effective April 24, 2026</p>
+    <h1 class="hero">Privacy</h1>
 
-    <p>
-      Winnowed is designed around a simple principle: your subscription data belongs to you. Here's what that means in practice.
-    </p>
+    <p class="hero-sub">Effective April 24, 2026</p>
 
-    <h2>What we collect</h2>
-    <p>
-      Nothing.
-    </p>
-    <p>
-      Winnowed does not collect, store, transmit, or share any personal information. Everything you enter — subscription names, costs, review decisions, notes, receipts you scan — stays on your device. It never leaves.
-    </p>
+    <div class="prose">
+      <p class="lede">
+        Winnowed is designed around a simple principle: your subscription data belongs to you. Here's what that means in practice.
+      </p>
+    </div>
 
-    <h2>What we don't do</h2>
-    <ul>
-      <li>No accounts. No sign-in. No email address required to use the app.</li>
-      <li>No analytics. No tracking. No telemetry.</li>
-      <li>No cloud sync. No remote backups. No servers of any kind.</li>
-      <li>No third-party SDKs for advertising, analytics, or tracking.</li>
-      <li>No data shared with anyone. Ever.</li>
-    </ul>
+    <section class="sec">
+      <h2 class="fade-up">What we collect</h2>
+      <div class="prose fade-up">
+        <p><strong>Nothing.</strong></p>
+        <p>
+          Winnowed does not collect, store, transmit, or share any personal information. Everything you enter — subscription names, costs, review decisions, notes, receipts you scan — stays on your device. It never leaves.
+        </p>
+      </div>
+    </section>
 
-    <h2>Receipt scanning</h2>
-    <p>
-      When you scan a statement or receipt, Winnowed uses Apple's on-device Vision framework to extract text. Images and text are processed entirely on your device. Nothing is sent to a server — not a Winnowed server, not an Apple server, not any server.
-    </p>
+    <section class="sec">
+      <h2 class="fade-up">What we don't do</h2>
+      <div class="prose fade-up">
+        <ul>
+          <li>No accounts. No sign-in. No email address required to use the app.</li>
+          <li>No analytics. No tracking. No telemetry.</li>
+          <li>No cloud sync. No remote backups. No servers of any kind.</li>
+          <li>No third-party SDKs for advertising, analytics, or tracking.</li>
+          <li>No data shared with anyone. Ever.</li>
+        </ul>
+      </div>
+    </section>
 
-    <h2>iCloud backup</h2>
-    <p>
-      Your device's standard iCloud backup — if you have it enabled in your iOS Settings — may include Winnowed's data, the same as any other app. This backup is controlled by Apple, encrypted in transit and at rest, and subject to <a href="https://www.apple.com/legal/privacy/en-ww/">Apple's privacy policy</a>. Winnowed has no access to it.
-    </p>
+    <section class="sec">
+      <h2 class="fade-up">Receipt scanning</h2>
+      <div class="prose fade-up">
+        <p>
+          When you scan a statement or receipt, Winnowed uses Apple's on-device Vision framework to extract text. Images and text are processed entirely on your device. Nothing is sent to a server — not a Winnowed server, not an Apple server, not any server.
+        </p>
+      </div>
+    </section>
 
-    <h2>This website</h2>
-    <p>
-      winnowed.app uses <a href="https://plausible.io/privacy-focused-web-analytics">Plausible</a>, a privacy-preserving analytics service that does not use cookies and does not collect any personal data or cross-site identifiers. All data is aggregate and anonymous. No personal information is ever recorded.
-    </p>
+    <section class="sec">
+      <h2 class="fade-up">iCloud backup</h2>
+      <div class="prose fade-up">
+        <p>
+          Your device's standard iCloud backup — if you have it enabled in your iOS Settings — may include Winnowed's data, the same as any other app. This backup is controlled by Apple, encrypted in transit and at rest, and subject to <a href="https://www.apple.com/legal/privacy/en-ww/" style="color: var(--rust); text-decoration: none; border-bottom: 1px solid rgba(160, 61, 30, 0.25);">Apple's privacy policy</a>. Winnowed has no access to it.
+        </p>
+      </div>
+    </section>
 
-    <h2>Changes</h2>
-    <p>
-      If this policy ever changes, the new version will be posted here and the effective date above will change. No silent updates.
-    </p>
+    <section class="sec">
+      <h2 class="fade-up">This website</h2>
+      <div class="prose fade-up">
+        <p>
+          winnowed.app uses <a href="https://plausible.io/privacy-focused-web-analytics" style="color: var(--rust); text-decoration: none; border-bottom: 1px solid rgba(160, 61, 30, 0.25);">Plausible</a>, a privacy-preserving analytics service that does not use cookies and does not collect any personal data or cross-site identifiers. All data is aggregate and anonymous. No personal information is ever recorded.
+        </p>
+      </div>
+    </section>
 
-    <h2>Contact</h2>
-    <p>
-      Questions, concerns, or anything else: <a href="mailto:kurtdklein09@icloud.com">kurtdklein09@icloud.com</a>.
-    </p>
+    <section class="sec">
+      <h2 class="fade-up">Changes</h2>
+      <div class="prose fade-up">
+        <p>
+          If this policy ever changes, the new version will be posted here and the effective date above will change. No silent updates.
+        </p>
+      </div>
+    </section>
 
-    <p class="signoff">— Kurt Klein, Paoli, Pennsylvania</p>
+    <section class="sec">
+      <h2 class="fade-up">Contact</h2>
+      <div class="prose fade-up">
+        <p>
+          Questions, concerns, or anything else: <a href="mailto:kurtdklein09@icloud.com" style="color: var(--rust); text-decoration: none; border-bottom: 1px solid rgba(160, 61, 30, 0.25);">kurtdklein09@icloud.com</a>.
+        </p>
+        <p class="quiet" style="color: var(--text-muted);">
+          — Kurt Klein, Berwyn, Pennsylvania
+        </p>
+      </div>
+    </section>
 
-    <footer class="footer">
+    <footer class="footer fade-up">
       <div>© 2026 Kurt Klein</div>
       <div class="footer-links">
         <a href="/">Home</a>
@@ -85,5 +155,28 @@
       </div>
     </footer>
   </main>
+
+  <!-- Scroll-triggered fade-in -->
+  <script>
+    (function () {
+      var items = document.querySelectorAll('.fade-up');
+      if (!('IntersectionObserver' in window) || items.length === 0) {
+        for (var i = 0; i < items.length; i++) items[i].classList.add('is-visible');
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -8% 0px'
+      });
+      items.forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
 </body>
 </html>
